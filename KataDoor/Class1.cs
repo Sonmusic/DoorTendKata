@@ -30,6 +30,13 @@ namespace KataDoor
             unlocked = true;
             return this;
         }
+        public Door OpenAndLocked(string key)
+        {
+            Key = key;
+            open = true;
+            locked = true;
+            return this;
+        }
         public Door Open()
         {
             if((open == false) && (closed == true) && (locked == false) && (unlocked == true))
