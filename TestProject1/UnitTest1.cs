@@ -70,7 +70,7 @@ namespace TestProject1
             Assert.IsTrue(door.IsClosed());
         }
         [TestMethod]
-        public void ReturnFalse_Close_CloedAndUnlocked_Door()
+        public void ReturnFalse_Close_ClosedAndUnlocked_Door()
         {
             KataDoor.Door door = new KataDoor.Door();
             door.ClosedAndUnlocked("123");
@@ -84,6 +84,13 @@ namespace TestProject1
                 Assert.IsTrue(door.IsClosed());
             }
         }
+        public void ReturnTrue_Lock_OpenAndUnlocked_Door()
+        {
+            KataDoor.Door door = new KataDoor.Door();
+            door.OpenAndUnlocked("123");
+            door.Lock();
+            Assert.IsTrue(door.IsLocked());
 
+        }
     }
 }
