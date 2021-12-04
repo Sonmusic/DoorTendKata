@@ -107,5 +107,43 @@ namespace TestProject1
                 Assert.Fail();
             }
         }
+        [TestMethod]
+        public void ReturnFalse_Unlock_OpenAndLocked_Door_WrongKey()
+        {
+            KataDoor.Door door = new KataDoor.Door();
+            door.OpenAndLocked("123");
+            if (door.Key == "321")
+            {
+                Assert.Fail();
+            }
+            else
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void ReturnFalse_Unlock_CosedAndUnLocked_Door()
+        {
+            KataDoor.Door door = new KataDoor.Door();
+            door.ClosedAndUnlocked("123");
+            try
+            {
+                if (door.Key == "123")
+                {
+                    door.Unlock();
+                    Assert.Fail();
+                }
+                else
+                {
+                    Assert.Fail();
+                }
+            }
+            catch (System.Exception)
+            {
+                Assert.IsTrue(door.IsUnlocked());
+            }
+
+        }
     }
 }
