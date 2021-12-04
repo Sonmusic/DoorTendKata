@@ -28,7 +28,22 @@ namespace TestProject1
             {
                 Assert.IsFalse(door.IsOpen());
             }
+        }
 
+        [TestMethod]
+        public void ReturnFalse_Open_OpenAndUnlocked_Door()
+        {
+            KataDoor.Door door = new KataDoor.Door();
+            door.OpenAndUnlocked("123");
+            try
+            {
+                door.Open();
+                Assert.Fail();
+            }
+            catch (System.Exception)
+            {
+                Assert.IsTrue(door.IsOpen());
+            }
         }
     }
 }
