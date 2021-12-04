@@ -61,5 +61,35 @@ namespace KataDoor
                 return false;
             }
         }
+        public bool IsClosed()
+        {
+            if (closed == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IsUnlocked()
+        {
+            if (unlocked == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IsLocked()
+        {
+            if(locked == true)
+            {
+                return true;
+            }
+            else { return false; }
+        }
     }
 }
