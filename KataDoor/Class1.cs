@@ -76,6 +76,19 @@ namespace KataDoor
                 throw new InvalidOperationException();
             }
         }
+        public Door Unlock()
+        {
+            if ((locked == true) && (unlocked == false))
+            {
+                unlocked = true;
+                locked = false;
+                return this;
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+        }
         public bool IsOpen()
         {
             if(open == true)
