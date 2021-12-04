@@ -93,6 +93,23 @@ namespace TestProject1
             Assert.IsTrue(door.IsLocked());
         }
         [TestMethod]
+        public void ReturnFalse_Lock_ClosedAndLocked_Door()
+        {
+            KataDoor.Door door = new KataDoor.Door();
+            door.ClosedAndLocked("123");
+            try
+            {
+                door.Lock();
+                Assert.Fail();
+            }
+            catch (System.Exception)
+            {
+                Assert.IsTrue(door.IsLocked());
+
+            }
+
+        }
+        [TestMethod]
         public void ReturnTrue_Unlock_OpenAndLocked_Door()
         {
             KataDoor.Door door = new KataDoor.Door();
